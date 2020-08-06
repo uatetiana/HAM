@@ -27,6 +27,7 @@ let tabsMenu = document.querySelector('.amazing-work-tabs');
 let tabsMenuItems = document.querySelectorAll('.amazing-work-tabs-title');
 let btnLoadMore = document.querySelector('.btn-load');
 let tabsContent = document.querySelectorAll('.amazing-work-content');
+let spinner = document.querySelector('.lds-ring');
 
 
 tabsContent.forEach(el => console.log(el))
@@ -59,28 +60,37 @@ tabsMenu.addEventListener('click', event => {
     })
 })
 
-btnLoadMore.addEventListener('click', () => {
-    tabsContent.forEach(el => {
-        if (!el.classList.contains('active')) {
-            el.classList.add('active');
-            btnLoadMore.classList.add('hidden')
-            el.querySelectorAll('.amazing-work-item').forEach(content => {
-                tabsMenuItems.forEach(tab => {
-                    if (tab.classList.contains('active')) {
-                        if (tab.dataset.tab === content.dataset.tab) {
-                            content.classList.add('active');
-                        } else if (tab.dataset.tab === 'all') {
-                            content.classList.add('active');
-                        } else {
-                            content.classList.remove('active');
-                        }
-                    }
-                })
-            })
-        }
+
+    btnLoadMore.addEventListener('click', () => {
+                setTimeout(function () {
+                            btnLoadMore.classList.add('hidden');
+                            spinner.classList.add('active')
+                    setTimeout(function () {
+
+                        tabsContent.forEach(el => {
+                            if (!el.classList.contains('active')) {
+                                el.classList.add('active');
+                                el.querySelectorAll('.amazing-work-item').forEach(content => {
+                                    tabsMenuItems.forEach(tab => {
+                                        if (tab.classList.contains('active')) {
+                                            if (tab.dataset.tab === content.dataset.tab) {
+                                                content.classList.add('active');
+                                            } else if (tab.dataset.tab === 'all') {
+                                                content.classList.add('active');
+                                            } else {
+                                                content.classList.remove('active');
+                                            }
+                                        }
+                                    })
+                                })
+                            }
+                        })
+                        spinner.classList.remove('active')
+                    }, 1000)
+                }, 10)
     })
 
-})
+
 
 // Slider
 
