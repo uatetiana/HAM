@@ -33,6 +33,7 @@ let spinner = document.querySelector('.lds-ring');
 tabsContent.forEach(el => console.log(el))
 
 tabsMenu.addEventListener('click', event => {
+
     tabsContent[1].classList.remove('active');
     btnLoadMore.classList.remove('hidden')
     tabsContent.forEach(block => {
@@ -46,6 +47,7 @@ tabsMenu.addEventListener('click', event => {
 
                 } else {
                     el.classList.remove('active');
+
                 }
             })
             if (!event.target.classList.contains('active')) {
@@ -62,7 +64,7 @@ tabsMenu.addEventListener('click', event => {
 
 
 btnLoadMore.addEventListener('click', () => {
-    setTimeout(function () {
+
         btnLoadMore.classList.add('hidden');
         spinner.classList.add('active')
         setTimeout(function () {
@@ -87,7 +89,7 @@ btnLoadMore.addEventListener('click', () => {
             })
             spinner.classList.remove('active')
         }, 1000)
-    }, 10)
+
 })
 
 

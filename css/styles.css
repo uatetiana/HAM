@@ -346,7 +346,7 @@ body {
 }
 
 .amazing-work-tabs {
-    padding: 70px 0;
+    margin: 70px 0;
     display: flex;
     justify-content: center;
     cursor: pointer;
