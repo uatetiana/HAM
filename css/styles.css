@@ -857,8 +857,16 @@ width: inherit;
 }
 
 .glide__arrow.arrow-container {
-position: unset;
+    position: unset;
     padding: 0;
+    border: 1px solid #BBBBBB;
+    border-radius: unset;
+    transform: none;
+
+}
+
+.glide__arrow.arrow-container:hover {
+    border-color: transparent;
 }
 
 .lds-ring {
